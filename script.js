@@ -1,12 +1,12 @@
 //parent array that have 3 arrays with O or X 
-const parentArray = [['X',null,'X'],
-                     ['O','O','O'],
-                     ['X',null,'O']];
+const parentArray = [[null,null,null],
+                     [null,null,null],
+                     [null,null,null]];
 
-let turn = 'Y';
+let turn = 'X';
 
 // toggle function
-const toggle = () => turn = turn === 'X' ? 'Y': 'X';
+const toggle = () => turn = turn === 'X' ? 'O': 'X';
 
 const gameBoard = (() => {
     function displayBoard() {
@@ -26,4 +26,71 @@ const gameBoard = (() => {
     return {displayBoard};
   })();
 
-gameBoard.displayBoard();
+// Updates 'X' or 'Y' on DOM on clicking
+document.addEventListener("click", function(event) {
+    if ( event.target.className === 'tile') {
+        let tileNumber = (event.target.id).slice(2);
+
+        switch (tileNumber) {
+            case "1":
+                if (parentArray[0][0] === null) {
+                    parentArray[0][0] = turn;
+                    toggle();
+                }
+                break;
+            case "2":
+                if (parentArray[0][1] === null) {
+                    parentArray[0][1] = turn;
+                    toggle();
+                }
+                break;
+            case "3":
+                if (parentArray[0][2] === null) {
+                    parentArray[0][2] = turn;
+                    toggle();
+                }
+                break;
+            case "4":
+                if (parentArray[1][0] === null) {
+                    parentArray[1][0] = turn;
+                    toggle();
+                }
+                break;
+            case "5":
+                if (parentArray[1][1] === null) {
+                    parentArray[1][1] = turn;
+                    toggle();
+                }
+                break;
+            case "6":
+                if (parentArray[1][2] === null) {
+                    parentArray[1][2] = turn;
+                    toggle();
+                }
+                break;
+            case "7":
+                if (parentArray[2][0] === null) {
+                    parentArray[2][0] = turn;
+                    toggle();
+                }
+                break;
+            case "8":
+                if (parentArray[2][1] === null) {
+                    parentArray[2][1] = turn;
+                    toggle();
+                }
+                break;
+            case "9":
+                if (parentArray[2][2] === null) {
+                    parentArray[2][2] = turn;
+                    toggle();
+                }
+                break;
+        };
+    
+    gameBoard.displayBoard();
+    };
+});
+
+
+
