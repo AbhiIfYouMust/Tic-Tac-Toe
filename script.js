@@ -26,16 +26,16 @@ const gameBoard = (() => {
     return {displayBoard};
   })();
 
-// Updates 'X' or 'Y' on DOM on clicking
+// Updates 'X' or 'Y' on DOM on clicking divs with class tile
 document.addEventListener("click", function(event) {
     if ( event.target.className === 'tile') {
         let tileNumber = (event.target.id).slice(2);
 
         switch (tileNumber) {
             case "1":
-                if (parentArray[0][0] === null) {
+                if (parentArray[0][0] === null) { //Checks if the tile is empty or not
                     parentArray[0][0] = turn;
-                    toggle();
+                    toggle(); // toggles on completing a turn
                 }
                 break;
             case "2":
