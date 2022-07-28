@@ -20,7 +20,9 @@ const gameBoard = (() => {
                 // Removes populated tile from tiles array so the 0th element is the required tile
                 tiles.shift();
             };
-        };        
+        };
+        
+        document.querySelector("#turn").textContent = `Turn: ${turn}`;
     };
     return {displayBoard};
   })();
@@ -130,12 +132,12 @@ document.addEventListener("click", function(event) {
             };
         
         gameBoard.displayBoard();
-        document.querySelector("p").textContent = gameStatus();
+        document.querySelector("#declaration").textContent = gameStatus();
         };
     };
 });
 
-// Clears grid on clicking restart button, the only button on index.html
+// Clears grid and winner text while setting turn to "X" on clicking restart button, the only button on index.html
 document.querySelector("button").addEventListener("click", () => {
     parentArray.length = 0;
 
@@ -143,7 +145,9 @@ document.querySelector("button").addEventListener("click", () => {
     [null,null,null],
     [null,null,null]];
 
-    document.querySelector("p").textContent = '';
+    document.querySelector("#declaration").textContent = '';
+
+    turn = 'X';
 
     gameBoard.displayBoard();
 });
