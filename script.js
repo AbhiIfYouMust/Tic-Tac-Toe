@@ -152,5 +152,3 @@ document.querySelector("button").addEventListener("click", () => {
     gameBoard.displayBoard();
 });
 
-
-
