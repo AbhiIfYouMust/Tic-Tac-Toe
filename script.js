@@ -3,7 +3,10 @@ const parentArray = [['X',null,'X'],
                      ['O','O','O'],
                      ['X',null,'O']];
 
-let turn = 'X';
+let turn = 'Y';
+
+// toggle function
+const toggle = () => turn = turn === 'X' ? 'Y': 'X';
 
 const gameBoard = (() => {
     function displayBoard() {
@@ -24,6 +27,3 @@ const gameBoard = (() => {
   })();
 
 gameBoard.displayBoard();
-
-
-
