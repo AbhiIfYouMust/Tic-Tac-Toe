@@ -61,75 +61,77 @@ const gameStatus = () => {
         return 'O wins';
     } else if (!parentArray[0].includes(null) && !parentArray[1].includes(null) && !parentArray[2].includes(null)) {
         return 'Tie';
-    } else {
-        return '';
-    };
+    }
 }
 
 // Updates 'X' or 'Y' on DOM on clicking divs with class tile
 document.addEventListener("click", function(event) {
-    if ( event.target.className === 'tile') {
-        let tileNumber = (event.target.id).slice(2);
 
-        switch (tileNumber) {
-            case "1":
-                if (parentArray[0][0] === null) { //Checks if the tile is empty or not
-                    parentArray[0][0] = turn;
-                    toggle(); // toggles on completing a turn
-                }
-                break;
-            case "2":
-                if (parentArray[0][1] === null) {
-                    parentArray[0][1] = turn;
-                    toggle();
-                }
-                break;
-            case "3":
-                if (parentArray[0][2] === null) {
-                    parentArray[0][2] = turn;
-                    toggle();
-                }
-                break;
-            case "4":
-                if (parentArray[1][0] === null) {
-                    parentArray[1][0] = turn;
-                    toggle();
-                }
-                break;
-            case "5":
-                if (parentArray[1][1] === null) {
-                    parentArray[1][1] = turn;
-                    toggle();
-                }
-                break;
-            case "6":
-                if (parentArray[1][2] === null) {
-                    parentArray[1][2] = turn;
-                    toggle();
-                }
-                break;
-            case "7":
-                if (parentArray[2][0] === null) {
-                    parentArray[2][0] = turn;
-                    toggle();
-                }
-                break;
-            case "8":
-                if (parentArray[2][1] === null) {
-                    parentArray[2][1] = turn;
-                    toggle();
-                }
-                break;
-            case "9":
-                if (parentArray[2][2] === null) {
-                    parentArray[2][2] = turn;
-                    toggle();
-                }
-                break;
+    // Only proceeds if game is incomplete
+    if (gameStatus() === undefined) {
+        if ( event.target.className === 'tile') {
+            let tileNumber = (event.target.id).slice(2);
+
+            switch (tileNumber) {
+                case "1":
+                    if (parentArray[0][0] === null) { //Checks if the tile is empty or not
+                        parentArray[0][0] = turn;
+                        toggle(); // toggles on completing a turn
+                    }
+                    break;
+                case "2":
+                    if (parentArray[0][1] === null) {
+                        parentArray[0][1] = turn;
+                        toggle();
+                    }
+                    break;
+                case "3":
+                    if (parentArray[0][2] === null) {
+                        parentArray[0][2] = turn;
+                        toggle();
+                    }
+                    break;
+                case "4":
+                    if (parentArray[1][0] === null) {
+                        parentArray[1][0] = turn;
+                        toggle();
+                    }
+                    break;
+                case "5":
+                    if (parentArray[1][1] === null) {
+                        parentArray[1][1] = turn;
+                        toggle();
+                    }
+                    break;
+                case "6":
+                    if (parentArray[1][2] === null) {
+                        parentArray[1][2] = turn;
+                        toggle();
+                    }
+                    break;
+                case "7":
+                    if (parentArray[2][0] === null) {
+                        parentArray[2][0] = turn;
+                        toggle();
+                    }
+                    break;
+                case "8":
+                    if (parentArray[2][1] === null) {
+                        parentArray[2][1] = turn;
+                        toggle();
+                    }
+                    break;
+                case "9":
+                    if (parentArray[2][2] === null) {
+                        parentArray[2][2] = turn;
+                        toggle();
+                    }
+                    break;
+            };
+        
+        gameBoard.displayBoard();
+        document.querySelector("p").textContent = gameStatus();
         };
-    
-    gameBoard.displayBoard();
-    document.querySelector("p").textContent = gameStatus();
     };
 });
 
