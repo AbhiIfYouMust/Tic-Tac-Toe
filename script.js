@@ -1,5 +1,5 @@
 // Parent array that have 3 arrays with O or X 
-const parentArray = [[null,null,null],
+let parentArray = [[null,null,null],
                      [null,null,null],
                      [null,null,null]];
 
@@ -135,6 +135,18 @@ document.addEventListener("click", function(event) {
     };
 });
 
+// Clears grid on clicking restart button, the only button on index.html
+document.querySelector("button").addEventListener("click", () => {
+    parentArray.length = 0;
+
+    parentArray = [[null,null,null],
+    [null,null,null],
+    [null,null,null]];
+
+    document.querySelector("p").textContent = '';
+
+    gameBoard.displayBoard();
+});
 
 
 
